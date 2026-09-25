@@ -92,7 +92,7 @@ export default function Navbar() {
           <div className="flex items-center flex-wrap gap-4 sm:gap-6">
             <span className="inline-flex items-center gap-1.5 text-slate-300">
               <MapPin className="w-3.5 h-3.5 text-amber-400" />
-              <span>Mahagama, Sri Lanka</span>
+              <span>Mahargama, Sri Lanka</span>
             </span>
             <a
               href={`tel:${siteConfig.contact.phonePrimary.replace(/\s+/g, "")}`}
