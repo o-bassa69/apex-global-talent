@@ -55,7 +55,7 @@ export default function Footer() {
                   </span>
                 </div>
                 <span className="text-xs text-slate-400">
-                  Pvt Ltd • Maharagama, Sri Lanka
+                  Pvt Ltd • Malabe, Sri Lanka
                 </span>
               </div>
             </a>
@@ -173,12 +173,12 @@ export default function Footer() {
           {/* Col 4: Contact & Colombo Center */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Colombo Center
+              Malabe Center (Head Office)
             </h4>
             <div className="space-y-2.5 text-xs text-slate-400">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                <span>Level 4, Apex Tower, High Level Road, Colombo 05, Sri Lanka</span>
+                <span>469, Athurugiriya Road, Malabe</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-amber-400 shrink-0" />

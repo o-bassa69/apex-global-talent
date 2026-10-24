@@ -71,7 +71,7 @@ export default function Contact() {
             Book a Free Consultation or Enroll
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600">
-            Visit our Colombo center or get personalized guidance over phone and WhatsApp.
+            Visit our Malabe center (469, Athurugiriya Road, Malabe) or get personalized guidance over phone and WhatsApp.
             Our educational advisors will assess your eligibility without obligations.
           </p>
         </div>

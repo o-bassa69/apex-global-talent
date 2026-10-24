@@ -463,8 +463,8 @@ _Sent via Apex Global Talent Official Website_`;
                   <option value="Advanced Level (A/L)">G.C.E. Advanced Level (A/L)</option>
                   <option value="Ordinary Level (O/L)">G.C.E. Ordinary Level (O/L)</option>
                   <option value="Vocational Diploma / NVQ">Vocational Diploma / NVQ Certificate</option>
-                  <option value="Bachelor's Degree">Bachelor's Degree</option>
-                  <option value="Postgraduate / Master's">Postgraduate / Master's</option>
+                  <option value="Bachelor's Degree">Bachelor&apos;s Degree</option>
+                  <option value="Postgraduate / Master's">Postgraduate / Master&apos;s</option>
                 </select>
               </div>
 

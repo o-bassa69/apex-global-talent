@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
+import GoogleTranslateScript from "@/components/GoogleTranslateScript";
 import { siteConfig } from "@/data/siteConfig";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -56,10 +57,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${jakarta.variable} font-sans min-h-screen flex flex-col bg-[#fafbfc] text-slate-900 antialiased selection:bg-amber-100 selection:text-amber-900`}
+        suppressHydrationWarning
       >
+        <GoogleTranslateScript />
         <Navbar />
         <main className="flex-1 w-full">{children}</main>
         <Footer />

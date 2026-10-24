@@ -22,18 +22,17 @@ export const siteConfig = {
   },
   contact: {
     // Easily update actual values here later
-    phonePrimary: "+94 71 572 2071",
-    phoneSecondary: "+94 71 572 2071",
-    whatsappNumber: "94715722071", // formatted for wa.me links
-    whatsappDisplay: "+94 71 572 2071",
+    phonePrimary: "+94 76 331 5792",
+    phoneSecondary: "+94 76 331 5792",
+    whatsappNumber: "94763315792", // formatted for wa.me links
+    whatsappDisplay: "94 76 331 5792",
     whatsappDefaultMessage: "Hello Apex Global Talent, I would like to inquire about Japanese/Korean language courses and visa processing.",
-    emailPrimary: "info@apexglobaltalent.lk",
+    emailPrimary: "info@apexglobaltalentpvt.com",
     emailAdmissions: "admissions@apexglobaltalent.lk",
-    address: "Maharagama, Sri Lanka",
-    addressPlaceholderNote: "[Placeholder: Update actual office premises address in src/data/siteConfig.ts]",
-    city: "Maharagama",
+    address: "469, Athurugiriya Road, Malabe",
+    city: "Malabe",
     province: "Western Province",
-    postalCode: "00500",
+    postalCode: "10115",
     openingHours: [
       { days: "Monday – Friday", hours: "8:30 AM – 5:30 PM" },
       { days: "Saturday", hours: "9:00 AM – 2:00 PM" },
@@ -47,7 +46,7 @@ export const siteConfig = {
       tiktok: "https://tiktok.com/@apexglobaltalent",
     },
     googleMapsEmbedUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63371.81529707421!2d79.82118595!3d6.9218335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae253d10f7a7003%3A0x320b2e4d32d3838d!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2slk!4v1700000000000!5m2!1sen!2slk",
+      "https://maps.google.com/maps?q=469,+Athurugiriya+Road,+Malabe,+Sri+Lanka&t=&z=16&ie=UTF8&iwloc=&output=embed",
   },
   disclaimer: {
     title: "Legal & Regulatory Compliance Disclaimer",
