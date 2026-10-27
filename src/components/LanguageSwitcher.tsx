@@ -1,193 +1,149 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useSyncExternalStore } from "react";
-import { Globe, ChevronDown, ChevronUp, Check } from "lucide-react";
-
-export interface LanguageOption {
-  code: string;
-  label: string;
-  nativeName: string;
-}
-
-export const LANGUAGES: LanguageOption[] = [
-  { code: "en", label: "English", nativeName: "English" },
-  { code: "si", label: "Sinhala", nativeName: "සිංහල" },
-  { code: "ko", label: "Korean", nativeName: "한국어" },
-  { code: "ja", label: "Japanese", nativeName: "日本語" },
-];
-
-function detectInitialLanguage(): string {
-  if (typeof window === "undefined") return "en";
-  try {
-    const match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
-    if (match) {
-      const val = decodeURIComponent(match[1]);
-      const lang = val.split("/").filter(Boolean).pop();
-      if (lang && LANGUAGES.some((l) => l.code === lang)) {
-        return lang;
-      }
-    }
-
-    const saved = localStorage.getItem("apex_selected_lang");
-    if (saved && LANGUAGES.some((l) => l.code === saved)) {
-      return saved;
-    }
-  } catch {
-    // ignore
-  }
-  return "en";
-}
-
-function subscribeToLanguage(callback: () => void) {
-  if (typeof window === "undefined") return () => {};
-  window.addEventListener("storage", callback);
-  return () => window.removeEventListener("storage", callback);
-}
-
-function getLanguageSnapshot(): string {
-  return detectInitialLanguage();
-}
-
-function getLanguageServerSnapshot(): string {
-  return "en";
-}
-
-function applyLanguageCookie(langCode: string) {
-  if (typeof window === "undefined") return;
-
-  const hostname = window.location.hostname;
-  const cookieVal = `/en/${langCode}`;
-
-  if (langCode === "en") {
-    document.cookie =
-      "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${hostname};`;
-    if (!hostname.includes("localhost") && hostname.includes(".")) {
-      const parts = hostname.split(".");
-      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${parts.slice(-2).join(".")};`;
-    }
-    document.cookie = "googtrans=/en/en; path=/;";
-  } else {
-    document.cookie = `googtrans=${cookieVal}; path=/;`;
-    document.cookie = `googtrans=${cookieVal}; path=/; domain=${hostname};`;
-    if (!hostname.includes("localhost") && hostname.includes(".")) {
-      const parts = hostname.split(".");
-      document.cookie = `googtrans=${cookieVal}; path=/; domain=.${parts.slice(-2).join(".")};`;
-    }
-  }
-
-  // Trigger Google Translate select element if present
-  const select = document.querySelector(
-    ".goog-te-combo"
-  ) as HTMLSelectElement | null;
-  if (select) {
-    select.value = langCode;
-    select.dispatchEvent(new Event("change"));
-  } else {
-    window.location.reload();
-  }
-}
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { Check, ChevronDown, Globe } from "lucide-react";
+import { LANGUAGES, Language, useTranslation } from "@/i18n/LanguageContext";
+import { useDismiss } from "@/hooks/useDismiss";
 
 export default function LanguageSwitcher() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [manualLang, setManualLang] = useState<string | null>(null);
-  const externalLang = useSyncExternalStore(
-    subscribeToLanguage,
-    getLanguageSnapshot,
-    getLanguageServerSnapshot
-  );
+  const { language, setLanguage } = useTranslation();
+  const [open, setOpen] = useState(false);
 
-  const currentLang = manualLang ?? externalLang;
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const itemRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
-  // Close dropdown on click outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setIsOpen(false);
-      }
-    };
+  const close = useCallback(() => setOpen(false), []);
+  useDismiss(containerRef, open, close);
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+  const current =
+    LANGUAGES.find((option) => option.code === language) ?? LANGUAGES[0];
+
+  const focusItem = useCallback((index: number) => {
+    const total = LANGUAGES.length;
+    itemRefs.current[(index + total) % total]?.focus();
   }, []);
 
-  const handleSelectLanguage = (langCode: string) => {
-    if (langCode === currentLang) {
-      setIsOpen(false);
-      return;
-    }
+  // Move focus into the menu when it opens, starting on the active language.
+  useEffect(() => {
+    if (!open) return;
+    const activeIndex = LANGUAGES.findIndex((option) => option.code === language);
+    focusItem(activeIndex < 0 ? 0 : activeIndex);
+  }, [open, language, focusItem]);
 
-    setManualLang(langCode);
-    setIsOpen(false);
-    localStorage.setItem("apex_selected_lang", langCode);
-    applyLanguageCookie(langCode);
+  const handleTriggerKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      event.preventDefault();
+      setOpen(true);
+    }
   };
 
-  const currentOption =
-    LANGUAGES.find((l) => l.code === currentLang) || LANGUAGES[0];
+  const handleMenuKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const currentIndex = itemRefs.current.findIndex(
+      (item) => item === document.activeElement
+    );
+
+    switch (event.key) {
+      case "ArrowDown":
+        event.preventDefault();
+        focusItem(currentIndex + 1);
+        break;
+      case "ArrowUp":
+        event.preventDefault();
+        focusItem(currentIndex - 1);
+        break;
+      case "Home":
+        event.preventDefault();
+        focusItem(0);
+        break;
+      case "End":
+        event.preventDefault();
+        focusItem(LANGUAGES.length - 1);
+        break;
+      case "Escape":
+        event.preventDefault();
+        setOpen(false);
+        triggerRef.current?.focus();
+        break;
+      case "Tab":
+        setOpen(false);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const selectLanguage = (code: Language) => {
+    setLanguage(code);
+    setOpen(false);
+    triggerRef.current?.focus();
+  };
 
   return (
-    <div className="relative inline-block text-left" ref={dropdownRef}>
-      {/* Trigger Button - styled exactly to match user's reference */}
+    <div ref={containerRef} className="relative shrink-0">
       <button
+        ref={triggerRef}
         type="button"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-haspopup="true"
-        aria-expanded={isOpen}
-        aria-label="Select Language"
-        className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-300 rounded-lg text-sm font-semibold text-slate-800 hover:border-slate-400 hover:bg-slate-50 transition-all shadow-xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-lime-500/20"
+        onClick={() => setOpen((value) => !value)}
+        onKeyDown={handleTriggerKeyDown}
+        aria-haspopup="menu"
+        aria-expanded={open}
+        aria-label={`Change language — current: ${current.label}`}
+        className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-1.5 py-1.5 text-[11px] font-semibold text-slate-700 shadow-2xs transition-colors hover:border-slate-300 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600/40 sm:gap-2 sm:px-2.5 sm:text-xs"
       >
-        {/* Globe icon with bright lime-green outline matching screenshot */}
-        <Globe
-          className="w-4 h-4 text-[#8ec83c] stroke-[2.2] flex-shrink-0"
-          aria-hidden="true"
+        <Globe className="h-3.5 w-3.5 shrink-0 text-slate-500 sm:h-4 sm:w-4" />
+        <span className="whitespace-nowrap">{current.shortLabel}</span>
+        <ChevronDown
+          className={`h-3.5 w-3.5 shrink-0 text-slate-400 transition-transform duration-200 ${
+            open ? "rotate-180" : ""
+          }`}
         />
-        <span className="leading-none text-slate-800 font-medium">
-          {currentOption.nativeName}
-        </span>
-        {isOpen ? (
-          <ChevronUp className="w-4 h-4 text-slate-700 flex-shrink-0" />
-        ) : (
-          <ChevronDown className="w-4 h-4 text-slate-700 flex-shrink-0" />
-        )}
       </button>
 
-      {/* Dropdown Menu with exact colors and active lime highlight */}
-      {isOpen && (
+      {open && (
         <div
           role="menu"
-          aria-orientation="vertical"
-          className="absolute right-0 sm:left-0 sm:right-auto mt-1.5 w-44 bg-white border border-slate-200 rounded-lg shadow-xl overflow-hidden z-50 animate-in fade-in duration-100"
+          aria-label="Select language"
+          onKeyDown={handleMenuKeyDown}
+          className="absolute right-0 z-50 mt-2 w-44 origin-top-right overflow-hidden rounded-xl border border-slate-200 bg-white p-1 shadow-xl shadow-slate-900/10 animate-fade-in"
         >
-          <div className="flex flex-col py-0.5">
-            {LANGUAGES.map((lang) => {
-              const isSelected = lang.code === currentLang;
-              return (
-                <button
-                  key={lang.code}
-                  type="button"
-                  role="menuitem"
-                  onClick={() => handleSelectLanguage(lang.code)}
-                  className={`w-full text-left px-4 py-2.5 text-[15px] font-medium transition-colors flex items-center justify-between cursor-pointer ${
-                    isSelected
-                      ? "bg-[#edf8d6] text-slate-900 font-semibold"
-                      : "text-slate-800 hover:bg-slate-50"
-                  }`}
-                >
-                  <span>{lang.nativeName}</span>
-                  {isSelected && (
-                    <Check className="w-4 h-4 text-[#65a30d]" strokeWidth={2.5} />
-                  )}
-                </button>
-              );
-            })}
-          </div>
+          {LANGUAGES.map((option, index) => {
+            const isActive = option.code === language;
+            return (
+              <button
+                key={option.code}
+                ref={(node) => {
+                  itemRefs.current[index] = node;
+                }}
+                type="button"
+                role="menuitemradio"
+                aria-checked={isActive}
+                tabIndex={-1}
+                onClick={() => selectLanguage(option.code)}
+                className={`flex w-full items-center justify-between gap-2 rounded-lg px-2.5 py-2 text-left transition-colors ${
+                  isActive
+                    ? "bg-slate-900 text-white"
+                    : "text-slate-700 hover:bg-slate-100"
+                }`}
+              >
+                <span className="flex flex-col">
+                  <span className="text-xs font-semibold leading-tight">
+                    {option.label}
+                  </span>
+                  <span
+                    className={`text-[10px] uppercase tracking-wider ${
+                      isActive ? "text-amber-300" : "text-slate-400"
+                    }`}
+                  >
+                    {option.code}
+                  </span>
+                </span>
+                {isActive && (
+                  <Check className="h-3.5 w-3.5 shrink-0 text-amber-300" />
+                )}
+              </button>
+            );
+          })}
         </div>
       )}
     </div>

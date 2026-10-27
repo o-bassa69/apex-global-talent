@@ -1,0 +1,218 @@
+[
+  {
+    "id": "jp-gallery-1",
+    "fileName": "fukuoka-entrance-ceremony.jpg",
+    "image": "/assets/gallery/japan/fukuoka-entrance-ceremony.jpg",
+    "country": "JP",
+    "caption": {
+      "en": "Fukuoka International Foreign Language College 2026 entrance ceremony",
+      "si": "Fukuoka International Foreign Language College 2026 ඇතුළත් කිරීමේ උත්සවය",
+      "ko": "후쿠오카 국제외국어학원 2026학년도 입학식",
+      "ja": "福岡国際外語学院 2026年度 入学式"
+    }
+  },
+  {
+    "id": "jp-gallery-2",
+    "fileName": "fukuoka-airport-welcome.jpg",
+    "image": "/assets/gallery/japan/fukuoka-airport-welcome.jpg",
+    "country": "JP",
+    "caption": {
+      "en": "Students welcomed at Fukuoka Airport on arrival in Japan",
+      "si": "ජපානයට පැමිණි සිසුන් Fukuoka ගුවන්තොටුපළේදී පිළිගැනීම",
+      "ko": "일본 도착 후 후쿠오카 공항에서 학생들을 환영하는 모습",
+      "ja": "来日した学生を福岡空港で出迎え"
+    }
+  },
+  {
+    "id": "jp-gallery-3",
+    "fileName": "japan-study-tour.jpg",
+    "image": "/assets/gallery/japan/japan-study-tour.jpg",
+    "country": "JP",
+    "caption": {
+      "en": "APEX students on a Japan study tour with the local mascot",
+      "si": "ජපාන අධ්‍යයන චාරිකාවේ APEX සිසුන් සහ ස්ථානීය මාස්කොට්",
+      "ko": "일본 연수 중 현지 마스코트와 함께한 APEX 학생들",
+      "ja": "日本研修でご当地マスコットと記念撮影するAPEXの学生たち"
+    }
+  },
+  {
+    "id": "jp-gallery-4",
+    "fileName": "jlpt-mock-exam.jpg",
+    "image": "/assets/gallery/japan/jlpt-mock-exam.jpg",
+    "country": "JP",
+    "caption": {
+      "en": "JLPT mock examination in progress at the APEX examination hall",
+      "si": "APEX විභාග ශාලාවේ පැවැත්වෙන JLPT ආදර්ශ විභාගය",
+      "ko": "APEX 시험장에서 진행된 JLPT 모의시험",
+      "ja": "APEX試験会場で行われたJLPT模擬試験"
+    }
+  },
+  {
+    "id": "jp-gallery-5",
+    "fileName": "japanese-batch-group.jpg",
+    "image": "/assets/gallery/japan/japanese-batch-group.jpg",
+    "country": "JP",
+    "caption": {
+      "en": "Japanese language batch students with their instructors",
+      "si": "ජපන් භාෂා පන්තියේ සිසුන් සහ ගුරුවරු",
+      "ko": "일본어 반 학생들과 강사진",
+      "ja": "日本語クラスの学生と講師陣"
+    }
+  },
+  {
+    "id": "jp-gallery-6",
+    "fileName": "fukuoka-ceremony-students.jpg",
+    "image": "/assets/gallery/japan/fukuoka-ceremony-students.jpg",
+    "country": "JP",
+    "caption": {
+      "en": "APEX students at the Fukuoka entrance ceremony",
+      "si": "Fukuoka ඇතුළත් කිරීමේ උත්සවයේ APEX සිසුන්",
+      "ko": "후쿠오카 입학식에 참석한 APEX 학생들",
+      "ja": "福岡の入学式に出席したAPEXの学生たち"
+    }
+  },
+  {
+    "id": "jp-gallery-7",
+    "fileName": "jlpt-exam-hall.jpg",
+    "image": "/assets/gallery/japan/jlpt-exam-hall.jpg",
+    "country": "JP",
+    "caption": {
+      "en": "Students sitting a JLPT-style mock examination",
+      "si": "JLPT ආකෘතියේ ආදර්ශ විභාගයට අසුන් ගත් සිසුන්",
+      "ko": "JLPT 형식 모의시험을 치르는 학생들",
+      "ja": "JLPT形式の模擬試験に臨む学生たち"
+    }
+  },
+  {
+    "id": "jp-gallery-8",
+    "fileName": "japan-batch-orientation.jpg",
+    "image": "/assets/gallery/japan/japan-batch-orientation.jpg",
+    "country": "JP",
+    "caption": {
+      "en": "Japan batch orientation session at Visionary Leadership Academy",
+      "si": "Visionary Leadership Academy හි ජපාන කණ්ඩායම් දිශානති වැඩසටහන",
+      "ko": "비저너리 리더십 아카데미에서 열린 일본반 오리엔테이션",
+      "ja": "Visionary Leadership Academyでの日本組オリエンテーション"
+    }
+  },
+  {
+    "id": "kr-gallery-1",
+    "fileName": "korea-mou-signing.jpg",
+    "image": "/assets/gallery/korea/korea-mou-signing.jpg",
+    "country": "KR",
+    "caption": {
+      "en": "Official partnership agreement signing in Gwangju, South Korea",
+      "si": "දකුණු කොරියාවේ Gwangju හි නිල හවුල්කාරිත්ව ගිවිසුම අත්සන් කිරීම",
+      "ko": "광주에서 진행된 공식 파트너십 협약 체결",
+      "ja": "韓国・光州での公式パートナーシップ協定調印"
+    }
+  },
+  {
+    "id": "kr-gallery-2",
+    "fileName": "korea-factory-visit.jpg",
+    "image": "/assets/gallery/korea/korea-factory-visit.jpg",
+    "country": "KR",
+    "caption": {
+      "en": "APEX delegation visiting an industry partner in South Korea",
+      "si": "දකුණු කොරියාවේ කර්මාන්ත හවුල්කරුවෙකු නැරඹීමට ගිය APEX නියෝජිත කණ්ඩායම",
+      "ko": "한국 산업 파트너를 방문한 APEX 대표단",
+      "ja": "韓国の産業パートナーを訪問したAPEX代表団"
+    }
+  },
+  {
+    "id": "kr-gallery-3",
+    "fileName": "gwangju-school-visit.jpg",
+    "image": "/assets/gallery/korea/gwangju-school-visit.jpg",
+    "country": "KR",
+    "caption": {
+      "en": "Visit to Gwangju Girls' Commercial High School",
+      "si": "Gwangju ගැහැණු ළමයින්ගේ වාණිජ උසස් පාසලට ගිය චාරිකාව",
+      "ko": "광주여자상업고등학교 방문",
+      "ja": "光州女子商業高等学校への訪問"
+    }
+  },
+  {
+    "id": "kr-gallery-4",
+    "fileName": "korean-language-class.jpg",
+    "image": "/assets/gallery/korea/korean-language-class.jpg",
+    "country": "KR",
+    "caption": {
+      "en": "Korean language class at an affiliated learning centre",
+      "si": "අනුබද්ධ ඉගෙනුම් මධ්‍යස්ථානයක කොරියානු භාෂා පන්තිය",
+      "ko": "협력 학습센터에서 진행된 한국어 수업",
+      "ja": "提携学習センターでの韓国語クラス"
+    }
+  },
+  {
+    "id": "kr-gallery-5",
+    "fileName": "korea-batch-group.jpg",
+    "image": "/assets/gallery/korea/korea-batch-group.jpg",
+    "country": "KR",
+    "caption": {
+      "en": "Korean language batch students with the APEX team",
+      "si": "කොරියානු භාෂා පන්තියේ සිසුන් සහ APEX කණ්ඩායම",
+      "ko": "APEX 팀과 함께한 한국어 반 학생들",
+      "ja": "APEXチームと韓国語クラスの学生たち"
+    }
+  },
+  {
+    "id": "kr-gallery-6",
+    "fileName": "korea-university-visit.jpg",
+    "image": "/assets/gallery/korea/korea-university-visit.jpg",
+    "country": "KR",
+    "caption": {
+      "en": "Delegation visit to a Korean university campus",
+      "si": "කොරියානු විශ්වවිද්‍යාල පරිශ්‍රයකට නියෝජිත කණ්ඩායමේ චාරිකාව",
+      "ko": "한국 대학 캠퍼스를 방문한 대표단",
+      "ja": "韓国の大学キャンパスへの代表団訪問"
+    }
+  },
+  {
+    "id": "kr-gallery-7",
+    "fileName": "korea-manufacturing-visit.jpg",
+    "image": "/assets/gallery/korea/korea-manufacturing-visit.jpg",
+    "country": "KR",
+    "caption": {
+      "en": "Students and staff touring a Korean manufacturing partner",
+      "si": "කොරියානු නිෂ්පාදන හවුල්කරුවෙකුගේ කර්මාන්තශාලාව නැරඹීම",
+      "ko": "한국 제조 파트너사를 방문한 학생과 관계자들",
+      "ja": "韓国の製造パートナー工場を見学する学生とスタッフ"
+    }
+  },
+  {
+    "id": "kr-gallery-8",
+    "fileName": "korea-partnership-group.jpg",
+    "image": "/assets/gallery/korea/korea-partnership-group.jpg",
+    "country": "KR",
+    "caption": {
+      "en": "Partnership agreement with Korean education partners",
+      "si": "කොරියානු අධ්‍යාපන හවුල්කරුවන් සමඟ හවුල්කාරිත්ව ගිවිසුම",
+      "ko": "한국 교육 파트너들과의 협약 체결",
+      "ja": "韓国の教育パートナーとの提携協定"
+    }
+  },
+  {
+    "id": "kr-gallery-9",
+    "fileName": "korea-campus-building.jpg",
+    "image": "/assets/gallery/korea/korea-campus-building.jpg",
+    "country": "KR",
+    "caption": {
+      "en": "Partner university campus in South Korea",
+      "si": "දකුණු කොරියාවේ හවුල්කාර විශ්වවිද්‍යාල පරිශ්‍රය",
+      "ko": "한국의 협력 대학 캠퍼스",
+      "ja": "韓国の提携大学キャンパス"
+    }
+  },
+  {
+    "id": "kr-gallery-10",
+    "fileName": "korea-batch-photo.jpg",
+    "image": "/assets/gallery/korea/korea-batch-photo.jpg",
+    "country": "KR",
+    "caption": {
+      "en": "Korean language students and instructors at the APEX centre",
+      "si": "APEX මධ්‍යස්ථානයේ කොරියානු භාෂා සිසුන් සහ ගුරුවරු",
+      "ko": "APEX 센터의 한국어 학생과 강사진",
+      "ja": "APEXセンターの韓国語学生と講師陣"
+    }
+  }
+]

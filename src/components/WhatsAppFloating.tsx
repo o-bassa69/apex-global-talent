@@ -12,7 +12,7 @@ export default function WhatsAppFloating() {
   )}`;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div className="apex-wa-fab fixed bottom-6 right-6 z-50 flex flex-col items-end">
       {/* Quick Consultation Popover Card */}
       {isOpen && (
         <div className="mb-3 w-80 p-4 rounded-2xl bg-white border border-slate-200 shadow-2xl text-slate-800 animate-in fade-in slide-in-from-bottom-3 duration-200">

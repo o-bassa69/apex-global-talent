@@ -63,29 +63,30 @@ export default function VisaProcess() {
   ];
 
   return (
-    <section id="visa-process" className="py-20 bg-slate-50/70 border-b border-slate-100">
+    <section id="visa-process" className="py-20 lg:py-24 bg-[#fafbfc] border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-200/80 text-slate-800 text-xs font-semibold mb-3 border border-slate-300">
-            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+        {/* Section Header - Clean left or centered with good hierarchy */}
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/10 text-amber-800 text-xs sm:text-sm font-semibold mb-3 border border-amber-500/20">
+            <Sparkles className="w-4 h-4 text-amber-600" />
             <span>STEP-BY-STEP ROADMAP</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f172a] tracking-tight">
             Clear, Stress-Free Visa Processing
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600">
-            From your first inquiry in Sri Lanka to your first steps in Japan or South Korea,
-            our transparent 5-step process keeps you guided, prepared, and confident.
+          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+            From your initial assessment in Sri Lanka to your first day in Japan or South Korea,
+            our transparent 5-step roadmap keeps you informed, confident, and prepared.
           </p>
         </div>
 
-        {/* Process Timeline Steps */}
+        {/* Process Roadmap */}
         <div className="relative">
-          {/* Desktop connecting line */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-slate-200 -translate-y-8 z-0" />
+          {/* Continuous progression line for desktop */}
+          <div className="hidden lg:block absolute top-7 left-12 right-12 h-0.5 bg-slate-300 z-0" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 relative z-10">
+          {/* Cards: Vertical timeline on mobile, 5-col row on desktop */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-6 relative z-10">
             {steps.map((step, idx) => {
               const Icon = step.icon;
               return (
@@ -94,33 +95,33 @@ export default function VisaProcess() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="flex flex-col justify-between bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs hover:shadow-md transition-all duration-300 group hover:-translate-y-1"
+                  transition={{ duration: 0.45, delay: idx * 0.1 }}
+                  className="flex flex-col justify-between bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-xs hover:shadow-md transition-all duration-300 group hover:-translate-y-1"
                 >
                   <div>
-                    {/* Top Step Number & Icon */}
-                    <div className="flex items-center justify-between mb-5">
-                      <span className="text-xs font-extrabold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">
-                        Step {step.number}
-                      </span>
-                      <div className="w-10 h-10 rounded-xl bg-slate-900 text-amber-400 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Icon className="w-5 h-5" />
+                    {/* Step marker pin aligned with connecting line */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="w-12 h-12 rounded-xl bg-[#0f172a] text-amber-400 flex items-center justify-center font-bold text-sm shadow-sm group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors">
+                        {step.number}
+                      </div>
+                      <div className="w-9 h-9 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center">
+                        <Icon className="w-4 h-4" />
                       </div>
                     </div>
 
-                    <h3 className="text-base font-bold text-slate-900 mb-1 group-hover:text-blue-900 transition-colors">
+                    <h3 className="text-lg font-bold text-[#0f172a] mb-1.5 leading-snug">
                       {step.title}
                     </h3>
-                    <p className="text-xs font-semibold text-slate-500 mb-3">
+                    <p className="text-xs font-semibold text-amber-700 mb-3.5 uppercase tracking-wide">
                       {step.subtitle}
                     </p>
-                    <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                    <p className="text-sm text-slate-600 leading-relaxed mb-5">
                       {step.description}
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-slate-100 text-[11px] text-slate-500 italic">
-                    <span className="font-semibold text-slate-700 not-italic">Pro tip: </span>
+                  <div className="pt-3.5 border-t border-slate-100 text-xs text-slate-500 leading-relaxed">
+                    <span className="font-semibold text-slate-700">Pro tip: </span>
                     {step.tip}
                   </div>
                 </motion.div>
@@ -129,11 +130,11 @@ export default function VisaProcess() {
           </div>
         </div>
 
-        {/* Bottom Banner */}
-        <div className="mt-14 text-center">
+        {/* Bottom CTA */}
+        <div className="mt-14 sm:mt-16 text-center">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg cursor-pointer"
+            className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl bg-[#0f172a] hover:bg-[#1e293b] text-white font-semibold text-base transition-all shadow-md hover:shadow-lg cursor-pointer"
           >
             <span>Start Your Assessment Today</span>
             <ArrowRight className="w-4 h-4 text-amber-400" />

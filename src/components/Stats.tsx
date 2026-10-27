@@ -56,7 +56,6 @@ export default function Stats() {
       suffix: "+",
       label: "Students Placed",
       subtext: "Enrolled in Japanese & Korean academies",
-      accent: "text-blue-600 bg-blue-50",
     },
     {
       icon: ShieldCheck,
@@ -64,7 +63,6 @@ export default function Stats() {
       suffix: "%",
       label: "Visa Success Rate",
       subtext: "Immigration COE & Embassy approvals",
-      accent: "text-emerald-600 bg-emerald-50",
     },
     {
       icon: Building,
@@ -72,7 +70,6 @@ export default function Stats() {
       suffix: "+",
       label: "Partner Institutions",
       subtext: "Direct links with Japanese & Korean schools",
-      accent: "text-amber-600 bg-amber-50",
     },
     {
       icon: CheckCircle,
@@ -80,40 +77,37 @@ export default function Stats() {
       suffix: "%",
       label: "Ethical & Transparent",
       subtext: "Official registrations & zero hidden fees",
-      accent: "text-purple-600 bg-purple-50",
     },
   ];
 
   return (
-    <section id="stats" className="py-14 bg-white border-y border-slate-100 relative">
+    <section id="stats" className="py-12 bg-white border-y border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {stats.map((stat, idx) => {
             const Icon = stat.icon;
             return (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="flex flex-col items-center text-center p-6 rounded-2xl bg-slate-50/60 border border-slate-200/60 shadow-2xs hover:shadow-xs transition-shadow"
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                className="flex flex-col items-center text-center p-6 rounded-2xl bg-[#fafbfc] border border-slate-200/70 hover:border-slate-300 transition-colors"
               >
-                <div
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3 ${stat.accent}`}
-                >
-                  <Icon className="w-6 h-6" />
+                <div className="w-11 h-11 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center mb-3">
+                  <Icon className="w-5 h-5" />
                 </div>
 
-                <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-1">
+                <div className="text-3xl sm:text-4xl font-extrabold text-[#0f172a] mb-1">
                   <AnimatedNumber end={stat.value} suffix={stat.suffix} />
                 </div>
 
-                <div className="text-sm font-bold text-slate-800 mb-0.5">
+                <div className="text-sm sm:text-base font-bold text-slate-900 mb-1">
                   {stat.label}
                 </div>
 
-                <div className="text-xs text-slate-500 max-w-[180px]">
+                <div className="text-xs sm:text-sm text-slate-600 leading-normal max-w-[210px]">
                   {stat.subtext}
                 </div>
               </motion.div>

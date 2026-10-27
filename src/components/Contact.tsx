@@ -87,7 +87,7 @@ export default function Contact() {
               {/* Contact Info Pills */}
               <div className="space-y-4">
                 <div className="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-200/80">
-                  <div className="w-10 h-10 rounded-lg bg-blue-100/70 text-blue-700 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-700 flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
@@ -101,7 +101,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-200/80">
-                  <div className="w-10 h-10 rounded-lg bg-emerald-100/70 text-emerald-700 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-700 flex items-center justify-center shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
@@ -111,13 +111,13 @@ export default function Contact() {
                     <div className="text-sm font-semibold text-slate-900 mt-0.5 flex flex-wrap gap-x-4">
                       <a
                         href={`tel:${siteConfig.contact.phonePrimary.replace(/\s+/g, "")}`}
-                        className="hover:text-blue-700 transition-colors"
+                        className="hover:text-amber-600 transition-colors"
                       >
                         {siteConfig.contact.phonePrimary}
                       </a>
                       <a
                         href={`tel:${siteConfig.contact.phoneSecondary.replace(/\s+/g, "")}`}
-                        className="hover:text-blue-700 transition-colors"
+                        className="hover:text-amber-600 transition-colors"
                       >
                         {siteConfig.contact.phoneSecondary}
                       </a>
@@ -126,7 +126,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-200/80">
-                  <div className="w-10 h-10 rounded-lg bg-amber-100/70 text-amber-700 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-700 flex items-center justify-center shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
@@ -136,7 +136,7 @@ export default function Contact() {
                     <div className="text-sm font-semibold text-slate-900 mt-0.5">
                       <a
                         href={`mailto:${siteConfig.contact.emailPrimary}`}
-                        className="hover:text-blue-700 transition-colors"
+                        className="hover:text-amber-600 transition-colors"
                       >
                         {siteConfig.contact.emailPrimary}
                       </a>
@@ -145,7 +145,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-200/80">
-                  <div className="w-10 h-10 rounded-lg bg-purple-100/70 text-purple-700 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-700 flex items-center justify-center shrink-0">
                     <Clock className="w-5 h-5" />
                   </div>
                   <div className="text-xs text-slate-600">
@@ -300,19 +300,18 @@ export default function Contact() {
                         className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-slate-900 text-sm focus:ring-2 focus:ring-slate-900 focus:border-slate-900 transition-all outline-hidden"
                       >
                         <optgroup label="Japanese Courses & Visas">
-                          <option value="Japanese JLPT N5 Foundation">JLPT N5 Foundation Course</option>
-                          <option value="Japanese JLPT N4 Intermediate">JLPT N4 Intermediate Course</option>
-                          <option value="Japanese JLPT N3 Advanced">JLPT N3 Bridge to Fluency</option>
-                          <option value="SSW Specified Skilled Worker">SSW Japanese &amp; Skills Prep</option>
-                          <option value="Japan Student Visa Counseling">Japan Student Visa (COE Advisory)</option>
+                          <option value="Japan Student Visa JLPT N5-N2">Japan Student Visa Pathway (JLPT N5 – N2)</option>
+                          <option value="Japan SSW Food Caregiver">SSW Visa (Food Service &amp; Caregiver / Kaigo)</option>
+                          <option value="Japan Training Construction">Training Visa (Construction / Tokutaki)</option>
+                          <option value="Japan Working Hotel Airport">Working Visa (Hotel Front Office &amp; Airport Handling)</option>
                         </optgroup>
                         <optgroup label="Korean Courses & Visas">
-                          <option value="Korean EPS-TOPIK CBT Master Batch">EPS-TOPIK CBT Master Batch</option>
-                          <option value="Korean TOPIK I Foundation">TOPIK I (Level 1 &amp; 2) Course</option>
-                          <option value="Korean TOPIK II Intermediate">TOPIK II (Level 3 &amp; 4) Course</option>
-                          <option value="Korea Student Visa Counseling">Korea D-4 / D-2 Student Visa</option>
+                          <option value="Korea D-2 Visa KIIAC">D-2 Student Visa (Degree &amp; Work – KIIAC)</option>
+                          <option value="Korea D-4 Visa Language">D-4 Student Visa (Standard Language Path)</option>
+                          <option value="Korea EPS-TOPIK CBT E-9">EPS-TOPIK CBT (E-9 Government Work Visa)</option>
                         </optgroup>
                         <option value="General Visa Inquiry">General Visa &amp; Eligibility Assessment</option>
+
                       </select>
                     </div>
 

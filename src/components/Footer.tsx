@@ -2,7 +2,6 @@
 
 import React from "react";
 import {
-  GraduationCap,
   MapPin,
   Phone,
   Mail,
@@ -11,8 +10,11 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
+import Logo from "@/components/Logo";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function Footer() {
+  const { t } = useTranslation();
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
@@ -32,9 +34,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800">
+    <footer className="bg-[#09111e] text-slate-300 pt-16 pb-12 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-14 border-b border-slate-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-14 border-b border-slate-800/80">
           {/* Col 1: Brand & Bio */}
           <div className="lg:col-span-4 space-y-4">
             <a
@@ -42,9 +44,7 @@ export default function Footer() {
               onClick={(e) => handleNavClick(e, "#hero")}
               className="flex items-center gap-3 group"
             >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 font-bold shadow-md shadow-amber-500/10">
-                <GraduationCap className="w-5 h-5" />
-              </div>
+              <Logo variant="white" className="h-10 w-10" />
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
                   <span className="font-extrabold text-xl text-white tracking-tight">
@@ -61,13 +61,11 @@ export default function Footer() {
             </a>
 
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
-              Sri Lanka&apos;s trusted educational institute and visa consultancy specializing
-              in certified Japanese (JLPT, NAT) and Korean (EPS-TOPIK, TOPIK) instruction,
-              and ethical immigration documentation for study &amp; work opportunities.
+              {t("footer_bio")}
             </p>
 
             <div className="flex items-center gap-3 pt-2">
-              <span className="text-xs font-semibold text-slate-400">Accredited Pathways:</span>
+              <span className="text-xs font-semibold text-slate-400">{t("footer_accredited")}</span>
               <span className="text-xs px-2 py-0.5 rounded bg-red-950/60 text-red-300 border border-red-800/40">
                 Japan (日本)
               </span>
@@ -80,27 +78,31 @@ export default function Footer() {
           {/* Col 2: Navigation Links */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Quick Links
+              {t("footer_quick_links")}
             </h4>
             <ul className="space-y-2 text-xs">
               {[
-                { label: "Home", href: "#hero" },
-                { label: "Services", href: "#services" },
-                { label: "Why Choose Us", href: "#why-us" },
-                { label: "Course Batches", href: "#courses" },
-                { label: "Visa Timeline", href: "#visa-process" },
-                { label: "Student Stories", href: "#testimonials" },
-                { label: "FAQ", href: "#faq" },
-                { label: "Contact Us", href: "#contact" },
+                { labelKey: "nav_home", href: "#hero" },
+                { labelKey: "nav_about", href: "#who-we-are" },
+                { labelKey: "nav_pillars", href: "#pillars" },
+                { labelKey: "nav_partners", href: "#partners" },
+                { labelKey: "why_title", href: "#why-us" },
+                { labelKey: "nav_services", href: "#services" },
+                { labelKey: "nav_gallery", href: "#gallery" },
+                { labelKey: "nav_team", href: "#team" },
+                { labelKey: "nav_courses", href: "#courses" },
+                { labelKey: "nav_visa", href: "#visa-process" },
+                { labelKey: "nav_faq", href: "#faq" },
+                { labelKey: "nav_contact", href: "#contact" },
               ].map((link) => (
-                <li key={link.label}>
+                <li key={link.labelKey}>
                   <a
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
                     className="hover:text-amber-400 transition-colors inline-flex items-center gap-1.5"
                   >
                     <ArrowRight className="w-3 h-3 text-slate-600" />
-                    <span>{link.label}</span>
+                    <span>{t(link.labelKey)}</span>
                   </a>
                 </li>
               ))}
@@ -110,7 +112,7 @@ export default function Footer() {
           {/* Col 3: Programs Offered */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Language Programs
+              {t("footer_programs")}
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
@@ -173,7 +175,7 @@ export default function Footer() {
           {/* Col 4: Contact & Colombo Center */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Malabe Center (Head Office)
+              {t("footer_head_office")}
             </h4>
             <div className="space-y-2.5 text-xs text-slate-400">
               <div className="flex items-start gap-2">
@@ -207,7 +209,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="w-full py-2 px-3 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-bold inline-flex items-center justify-center gap-2 transition-colors"
               >
-                <span>WhatsApp Instant Inquiries</span>
+                <span>{t("footer_whatsapp_inquiries")}</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -218,17 +220,9 @@ export default function Footer() {
         <div className="my-8 p-4 rounded-xl bg-slate-950/60 border border-slate-800/80 text-[11px] text-slate-400 leading-relaxed">
           <div className="flex items-center gap-1.5 font-bold text-slate-300 mb-1">
             <Shield className="w-3.5 h-3.5 text-amber-400" />
-            <span>Legal Notice &amp; Regulatory Compliance</span>
+            <span>{t("footer_legal_title")}</span>
           </div>
-          <p>
-            Apex Global Talent Pvt Ltd is a registered private educational consultancy and
-            language training institute in Sri Lanka. We provide language instruction and visa
-            documentation guidance. We are not an embassy, consulate, or government migration
-            authority. Final decisions regarding visa approvals, admissions, and work permits
-            reside exclusively with the Immigration Services Agency of Japan, the Ministry of
-            Justice of the Republic of Korea, the Sri Lanka Foreign Employment Bureau (SLBFE),
-            and authorized educational institutions. We do not make false promises or guarantees.
-          </p>
+          <p>{t("footer_legal_text")}</p>
         </div>
 
         {/* Copyright & Bottom Bar */}
@@ -242,7 +236,7 @@ export default function Footer() {
               onClick={(e) => handleNavClick(e, "#contact")}
               className="hover:text-slate-300 transition-colors"
             >
-              Privacy Policy
+              {t("footer_privacy")}
             </a>
             <span>•</span>
             <a
@@ -250,7 +244,7 @@ export default function Footer() {
               onClick={(e) => handleNavClick(e, "#contact")}
               className="hover:text-slate-300 transition-colors"
             >
-              Terms of Service
+              {t("footer_terms")}
             </a>
             <span>•</span>
             <a
@@ -258,7 +252,7 @@ export default function Footer() {
               onClick={(e) => handleNavClick(e, "#contact")}
               className="hover:text-slate-300 transition-colors"
             >
-              Consultation Disclaimer
+              {t("footer_disclaimer")}
             </a>
           </div>
         </div>

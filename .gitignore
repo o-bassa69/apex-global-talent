@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# local source media (originals before web optimisation)
+/media-originals/
+
 # debug
 npm-debug.log*
 yarn-debug.log*

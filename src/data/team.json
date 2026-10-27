@@ -1,0 +1,79 @@
+{
+  "contact": {
+    "website": "https://www.apexglobaltalentpvt.com",
+    "websiteLabel": "apexglobaltalentpvt.com",
+    "address": "469, Athurugiriya Road, Malabe."
+  },
+  "members": [
+    {
+      "id": "guo-qiuju",
+      "name": "Guo Qiuju",
+      "photo": "/assets/team/guo-qiuju.jpg",
+      "role": {
+        "en": "Founder & Managing Director",
+        "si": "නිර්මාතෘ සහ කළමනාකාර අධ්‍යක්ෂ",
+        "ko": "창립자 겸 대표이사",
+        "ja": "創設者・代表取締役"
+      },
+      "phone": "+94 774 743 086",
+      "phoneHref": "+94774743086",
+      "email": "guoqiuju1013@gmail.com"
+    },
+    {
+      "id": "maneesha-basnayaka",
+      "name": "Maneesha Basnayaka",
+      "photo": "/assets/team/maneesha-basnayaka.jpg",
+      "role": {
+        "en": "Chief Executive Officer (CEO)",
+        "si": "ප්‍රධාන විධායක නිලධාරී (CEO)",
+        "ko": "최고경영자 (CEO)",
+        "ja": "最高経営責任者 (CEO)"
+      },
+      "phone": "+94 763 315 792",
+      "phoneHref": "+94763315792",
+      "email": "maneeshabasnayaka67@gmail.com"
+    },
+    {
+      "id": "charitha-basnayaka",
+      "name": "Charitha Basnayaka",
+      "photo": "/assets/team/charitha-basnayaka.jpg",
+      "role": {
+        "en": "Chief Operating Officer (COO)",
+        "si": "ප්‍රධාන මෙහෙයුම් නිලධාරී (COO)",
+        "ko": "최고운영책임자 (COO)",
+        "ja": "最高執行責任者 (COO)"
+      },
+      "phone": "+94 705 722 072",
+      "phoneHref": "+94705722072",
+      "email": "slzipanguyamato22@gmail.com"
+    },
+    {
+      "id": "yukari-yamashita",
+      "name": "Yukari Yamashita",
+      "photo": "/assets/team/yukari-yamashita.jpg",
+      "role": {
+        "en": "Japanese Advisor",
+        "si": "ජපන් උපදේශක",
+        "ko": "일본어 어드바이저",
+        "ja": "日本語アドバイザー"
+      },
+      "phone": "+94 774 743 086",
+      "phoneHref": "+94774743086",
+      "email": "jy002636jy@gmail.com"
+    },
+    {
+      "id": "wang-hao",
+      "name": "Wang Hao",
+      "photo": "/assets/team/wang-hao.jpg",
+      "role": {
+        "en": "Principal",
+        "si": "විදුහල්පති",
+        "ko": "원장",
+        "ja": "学院長"
+      },
+      "phone": "+94 743 688 870",
+      "phoneHref": "+94743688870",
+      "email": "261482141@qq.com"
+    }
+  ]
+}

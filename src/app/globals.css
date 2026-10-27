@@ -1,16 +1,45 @@
 @import "tailwindcss";
 
+@theme {
+  --animate-fade-in: fade-in 180ms ease-out;
+  --animate-drawer-in: drawer-in 220ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes drawer-in {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
 @layer base {
   :root {
     --background: #fafbfc;
     --foreground: #0f172a;
+    --navy-950: #09111e;
     --navy-primary: #0f172a;
     --navy-secondary: #1e293b;
-    --brand-indigo: #1e40af;
-    --brand-blue: #2563eb;
-    --accent-gold: #f59e0b;
-    --accent-amber: #d97706;
-    --accent-orange: #ea580c;
+    --accent-amber: #f59e0b;
+    --accent-amber-hover: #d97706;
+    --text-body: #334155;
+    --text-muted: #64748b;
+    --border-subtle: #e2e8f0;
+    --border-strong: #cbd5e1;
     --japan-crimson: #dc2626;
     --korea-royal: #2563eb;
   }
@@ -23,9 +52,21 @@
   body {
     background-color: #fafbfc;
     color: #0f172a;
-    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: var(--font-sans), var(--font-sinhala), var(--font-kr), var(--font-jp), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+  }
+
+  html[data-lang="si"] body {
+    font-family: var(--font-sinhala), var(--font-sans), sans-serif;
+  }
+
+  html[data-lang="ko"] body {
+    font-family: var(--font-kr), var(--font-sans), sans-serif;
+  }
+
+  html[data-lang="ja"] body {
+    font-family: var(--font-jp), var(--font-sans), sans-serif;
   }
 }
 
@@ -40,6 +81,29 @@
 .bg-dots-subtle {
   background-image: radial-gradient(rgba(15, 23, 42, 0.07) 1px, transparent 1px);
   background-size: 20px 20px;
+}
+
+/* Scroll reveal: IntersectionObserver adds .is-visible */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* Clean cards & soft elevations */
@@ -134,3 +198,16 @@ body {
   margin-top: 0px !important;
 }
 
+
+/* Respect reduced-motion preferences for the nav transitions */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-drawer-in {
+    animation: none !important;
+  }
+}
+
+/* The mobile nav drawer already offers a WhatsApp action — hide the floating button. */
+body.nav-open .apex-wa-fab {
+  display: none;
+}

@@ -140,33 +140,33 @@ export default function Testimonials() {
         </div>
 
         {/* Carousel Container */}
-        <div className="max-w-4xl mx-auto relative">
+        <div className="max-w-5xl mx-auto relative">
           <AnimatePresence mode="wait">
             <motion.div
               key={current.id}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.4 }}
-              className="bg-slate-50 rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm relative overflow-hidden"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.35 }}
+              className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-md relative overflow-hidden"
             >
               {/* Subtle quote watermark */}
-              <Quote className="absolute right-6 bottom-6 w-32 h-32 text-slate-200/50 pointer-events-none" />
+              <Quote className="absolute right-8 bottom-6 w-32 h-32 text-slate-100 pointer-events-none" />
 
-              <div className="flex flex-col md:flex-row gap-8 items-center md:items-start relative z-10">
+              <div className="flex flex-col md:flex-row gap-8 sm:gap-10 items-center md:items-start relative z-10">
                 {/* Student Photo & Destination Pill */}
                 <div className="flex flex-col items-center shrink-0">
-                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shadow-md ring-4 ring-white">
+                  <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden shadow-sm ring-4 ring-slate-100">
                     <Image
                       src={current.photoUrl}
                       alt={current.name}
                       fill
-                      sizes="120px"
+                      sizes="140px"
                       className="object-cover"
                     />
                   </div>
 
-                  <div className="mt-3 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold shadow-xs bg-white border border-slate-200">
+                  <div className="mt-3.5 flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold shadow-2xs bg-slate-50 border border-slate-200">
                     <span
                       className={`w-2 h-2 rounded-full ${
                         current.destination === "Japan" ? "bg-red-600" : "bg-blue-600"
@@ -179,23 +179,23 @@ export default function Testimonials() {
                 {/* Testimonial Content */}
                 <div className="flex-1 text-center md:text-left">
                   {/* Rating Stars */}
-                  <div className="flex items-center justify-center md:justify-start gap-1 text-amber-500 mb-3">
+                  <div className="flex items-center justify-center md:justify-start gap-1 text-amber-500 mb-4">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                     ))}
-                    <span className="text-xs font-bold text-slate-700 ml-2">5.0 Verified Review</span>
+                    <span className="text-xs sm:text-sm font-semibold text-slate-700 ml-2">Verified Graduate Review</span>
                   </div>
 
                   {/* Quote */}
-                  <p className="text-base sm:text-lg text-slate-800 leading-relaxed italic mb-6">
+                  <p className="text-base sm:text-lg md:text-xl text-slate-800 leading-relaxed italic mb-8 font-normal">
                     &ldquo;{current.quote}&rdquo;
                   </p>
 
                   {/* Student Details */}
-                  <div className="pt-4 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-4">
+                  <div className="pt-5 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
                     <div>
-                      <h4 className="text-base font-bold text-slate-900">{current.name}</h4>
-                      <div className="flex items-center gap-1.5 text-xs text-slate-500 mt-0.5">
+                      <h4 className="text-lg font-bold text-[#0f172a]">{current.name}</h4>
+                      <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 mt-0.5">
                         <MapPin className="w-3.5 h-3.5 text-slate-400" />
                         <span>{current.homeDistrict}</span>
                         <span className="text-slate-300">•</span>
@@ -203,8 +203,8 @@ export default function Testimonials() {
                       </div>
                     </div>
 
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                    <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-xs sm:text-sm font-bold border border-emerald-200">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                       <span>{current.statusBadge}</span>
                     </div>
                   </div>
@@ -227,7 +227,7 @@ export default function Testimonials() {
                   }}
                   className={`h-2.5 rounded-full transition-all cursor-pointer ${
                     currentIndex === dotIdx
-                      ? "w-8 bg-slate-900"
+                      ? "w-8 bg-[#0f172a]"
                       : "w-2.5 bg-slate-300 hover:bg-slate-400"
                   }`}
                   aria-label={`Go to slide ${dotIdx + 1}`}
@@ -236,11 +236,11 @@ export default function Testimonials() {
             </div>
 
             {/* Prev/Next arrows */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               <button
                 type="button"
                 onClick={handlePrev}
-                className="w-10 h-10 rounded-full border border-slate-300 bg-white hover:bg-slate-100 text-slate-700 flex items-center justify-center transition-all shadow-xs cursor-pointer"
+                className="w-11 h-11 rounded-full border border-slate-300 bg-white hover:bg-slate-100 text-slate-800 flex items-center justify-center transition-all shadow-xs cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-amber-400"
                 aria-label="Previous story"
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -248,7 +248,7 @@ export default function Testimonials() {
               <button
                 type="button"
                 onClick={handleNext}
-                className="w-10 h-10 rounded-full border border-slate-300 bg-white hover:bg-slate-100 text-slate-700 flex items-center justify-center transition-all shadow-xs cursor-pointer"
+                className="w-11 h-11 rounded-full border border-slate-300 bg-white hover:bg-slate-100 text-slate-800 flex items-center justify-center transition-all shadow-xs cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-amber-400"
                 aria-label="Next story"
               >
                 <ChevronRight className="w-5 h-5" />

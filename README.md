@@ -1,5 +1,15 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Content operations
+
+- **Edit text:** change keys in `src/i18n/locales/en.json`, `si.json`, `ko.json`, and `ja.json`. Do not hard-code UI copy in components. Language choice is stored in `localStorage` as `apex_selected_lang`.
+- **Logo:** upload the PNG to `public/assets/logo.png` (used on white backgrounds: navbar) and `public/assets/logo-white.png` (white/mono version for the navy hero, footer, partners diagram). Square PNG with a transparent background, 512×512 or larger. If the file is named `apex global talent.png`, that path works too — rename it to `logo.png` when you can, since spaces in URLs are awkward.
+- **Partners:** add or remove objects in `src/data/partners.json` (`name`, `logo`, `country` `JP`/`KR`, optional `website`). Put logo files in `public/assets/partners/`.
+- **Gallery photos:** add files under `public/assets/gallery/japan/` or `korea/`, then add an entry in `src/data/gallery.json` (`fileName`, `image`, `country`, `caption` in en/si/ko/ja). Use JPG/WebP at max 1800px and under ~500 KB (convert HEIC first — browsers do not display it). Original uploads can stay in `media-originals/` (git-ignored). Home slideshows use the first 5 per country; View All shows all. `SLIDE_INTERVAL` is `30000` ms in `src/components/GallerySection.tsx`.
+- **Team members:** add objects in `src/data/team.json` (`name`, `photo`, `role` and `bio` in en/si/ko/ja). Photos go in `public/assets/team/`.
+- **Hero / PDF:** `public/assets/hero/hero-bg.jpg` (and `hero-bg-sm.jpg` for mobile). D-2 guide: `public/assets/korea-d2-guide.pdf`.
+- Full content prompt and legal checks: `CONTENT.md`.
+
 ## Getting Started
 
 First, run the development server:

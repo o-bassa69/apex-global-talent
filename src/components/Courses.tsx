@@ -9,93 +9,10 @@ import {
   BookOpen,
   Award,
   ArrowRight,
-  Sparkles,
-  Users,
-  Video,
+  FileDown,
+  Shield,
 } from "lucide-react";
-import { japaneseCourses } from "@/data/courses";
-
-// Enhanced list of Korean courses tailored for the section
-const koreanCoursesData = [
-  {
-    id: "eps-topik-cbt",
-    country: "korea" as const,
-    title: "EPS-TOPIK CBT Special Training",
-    level: "HRD Korea E-9 Benchmark",
-    tagline: "Dedicated computer-based exam coaching for Sri Lankan job seekers targeting South Korea.",
-    duration: "3 - 4 Months (150 Hours)",
-    schedule: "Full-Time Intensive & Weekend Batches",
-    mode: "Classroom CBT Lab + Practical",
-    badge: "Government E-9 Gateway",
-    description:
-      "Engineered specifically for the official HRD Korea Computer-Based Test (CBT). Features extensive listening comprehension drills, manufacturing/industrial safety terminology, and timed simulations in our computer lab.",
-    targetExam: "Official EPS-TOPIK CBT (SLBFE / HRD Korea)",
-    suitableFor: [
-      "Sri Lankan youth targeting E-9 manufacturing, construction, or fishery jobs in Korea",
-      "Candidates registered or planning to register with SLBFE for the Korean employment roster",
-      "Beginners wanting focused vocabulary and rapid listening reflex training",
-    ],
-    syllabusHighlights: [
-      "Standard HRD Korea official textbook volume 1 & 2 complete walkthrough",
-      "Industrial safety terminology and basic factory workplace Korean",
-      "Listening questions practice matching official exam speed and audio accents",
-      "Daily computer-based mock exams with instant scoring and explanation",
-    ],
-    nextIntake: "New Batches Enrolling Weekly",
-  },
-  {
-    id: "topik-1",
-    country: "korea" as const,
-    title: "TOPIK I (Level 1 & 2) Foundation",
-    level: "Beginner Academic Level (A1 - A2)",
-    tagline: "Master Hangul, basic grammar, and conversational essentials for student visa admissions.",
-    duration: "4 Months (160 Hours)",
-    schedule: "Morning & Weekend Options",
-    mode: "Hybrid (Onsite + Online)",
-    badge: "D-4 & D-2 Essential",
-    description:
-      "A complete curriculum starting from Hangul alphabet mastery, sentence construction, particles, and formal/informal speech styles. Essential for D-4 Korean language institute visa and university bachelor admissions.",
-    targetExam: "TOPIK I (Test of Proficiency in Korean)",
-    suitableFor: [
-      "G.C.E. A/L graduates planning for Korean University language programs (D-4)",
-      "Students preparing for undergraduate (D-2) university degree admissions",
-      "Individuals seeking conversational fluency for business or travel",
-    ],
-    syllabusHighlights: [
-      "Hangul pronunciation rules, batchim (final consonants) and sound changes",
-      "Core 1,200+ vocabulary words and essential everyday grammar patterns",
-      "Listening comprehension drills with natural native Korean speakers",
-      "Past TOPIK I actual examination analysis and timed test-taking tactics",
-    ],
-    nextIntake: "Upcoming Month Intake",
-  },
-  {
-    id: "topik-2",
-    country: "korea" as const,
-    title: "TOPIK II (Level 3 & 4) Intermediate",
-    level: "Intermediate Academic (B1 - B2)",
-    tagline: "Qualify for Korean government scholarships (GKS) and university degree programs.",
-    duration: "5 Months (180 Hours)",
-    schedule: "Evening & Weekend Batches",
-    mode: "Hybrid (Onsite + Online)",
-    badge: "Scholarships & Degree",
-    description:
-      "Focuses on academic essays, formal business presentations, and complex grammatical structures. Crucial for students seeking undergraduate/graduate degrees taught in Korean and Global Korea Scholarships.",
-    targetExam: "TOPIK II Level 3/4",
-    suitableFor: [
-      "Degree holders aiming for Master's/PhD programs in South Korea",
-      "Students targeting Global Korea Scholarship (GKS) grants",
-      "Professionals pursuing corporate employment in Korean firms",
-    ],
-    syllabusHighlights: [
-      "TOPIK II academic writing (Question 51-54 essay composition formulas)",
-      "Advanced social, scientific, and cultural reading texts",
-      "News broadcasts and debate listening comprehension",
-      "University entrance interview preparation in fluent Korean",
-    ],
-    nextIntake: "Limited Seats per Cohort",
-  },
-];
+import { japaneseCourses, koreanCourses } from "@/data/courses";
 
 export default function Courses() {
   const [activeTab, setActiveTab] = useState<"japan" | "korea">("japan");
@@ -124,7 +41,7 @@ export default function Courses() {
     }
   };
 
-  const currentCourses = activeTab === "japan" ? japaneseCourses : koreanCoursesData;
+  const currentCourses = activeTab === "japan" ? japaneseCourses : koreanCourses;
 
   return (
     <section id="courses" className="py-20 bg-white border-b border-slate-100">
@@ -180,14 +97,14 @@ export default function Courses() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.35 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch"
           >
-            {currentCourses.map((course, idx) => (
+            {currentCourses.map((course) => (
               <div
                 key={course.id}
-                className="flex flex-col justify-between rounded-2xl bg-white border border-slate-200/90 p-7 shadow-xs hover:shadow-xl hover:border-slate-300 transition-all duration-300 group hover:-translate-y-1"
+                className="flex flex-col h-full rounded-2xl bg-white border border-slate-200/90 p-7 shadow-xs hover:shadow-lg hover:border-slate-300 transition-all duration-300 group hover:-translate-y-1"
               >
-                <div>
+                <div className="flex-1">
                   {/* Top Badge & Level */}
                   <div className="flex items-center justify-between gap-2 mb-4">
                     <span
@@ -205,65 +122,92 @@ export default function Courses() {
                   </div>
 
                   {/* Course Title */}
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-900 transition-colors">
+                  <h3 className="text-xl font-bold text-[#0f172a] mb-2 leading-snug">
                     {course.title}
                   </h3>
 
                   {/* Tagline */}
-                  <p className="text-xs text-amber-700 font-medium mb-4">
+                  <p className="text-xs sm:text-sm text-amber-800 font-medium mb-4">
                     {course.tagline}
                   </p>
 
                   {/* Key Specs Pills */}
-                  <div className="grid grid-cols-2 gap-2 p-3 rounded-xl bg-slate-50 border border-slate-100 text-xs text-slate-700 mb-5">
+                  <div className="grid grid-cols-2 gap-2 p-3.5 rounded-xl bg-slate-50 border border-slate-100 text-xs text-slate-700 mb-5">
                     <div className="flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                      <Clock className="w-4 h-4 text-slate-400 shrink-0" />
                       <span className="truncate">{course.duration}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                      <Calendar className="w-4 h-4 text-slate-400 shrink-0" />
                       <span className="truncate">{course.schedule.split("&")[0]}</span>
                     </div>
-                    <div className="col-span-2 flex items-center gap-1.5 pt-1 border-t border-slate-200/50 text-[11px] text-slate-500">
-                      <Award className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                      <span className="font-semibold text-slate-800">
+                    <div className="col-span-2 flex items-center gap-1.5 pt-2 border-t border-slate-200/50 text-xs text-slate-600">
+                      <Award className="w-4 h-4 text-amber-500 shrink-0" />
+                      <span className="font-semibold text-slate-900">
                         Exam: {course.targetExam}
                       </span>
                     </div>
                   </div>
 
+                  {/* Direct Admissions Note */}
+                  {course.directAdmissionsNote && (
+                    <div className="flex items-start gap-2 p-3 rounded-lg bg-emerald-50 border border-emerald-200 mb-5">
+                      <Shield className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span className="text-xs font-semibold text-emerald-800 leading-relaxed">
+                        {course.directAdmissionsNote}
+                      </span>
+                    </div>
+                  )}
+
                   {/* Description */}
-                  <p className="text-sm text-slate-600 leading-relaxed mb-5">
+                  <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed mb-6">
                     {course.description}
                   </p>
 
                   {/* Syllabus Highlights */}
-                  <div className="space-y-2 pt-3 border-t border-slate-100 mb-6">
-                    <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                  <div className="space-y-2.5 pt-4 border-t border-slate-100 mb-6">
+                    <div className="text-xs font-bold uppercase tracking-wider text-slate-400">
                       Syllabus Focus
                     </div>
                     {course.syllabusHighlights.slice(0, 3).map((item, hIdx) => (
-                      <div key={hIdx} className="flex items-start gap-2 text-xs text-slate-700">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                      <div key={hIdx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Bottom Enroll CTA */}
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
-                  <div className="text-[11px] font-medium text-emerald-700">
-                    {course.nextIntake}
+                {/* Bottom CTA — Pinned cleanly to the bottom */}
+                <div className="mt-auto pt-5 border-t border-slate-100 flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2">
+                    <div className="text-xs font-medium text-emerald-800">
+                      {course.nextIntake}
+                    </div>
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => handleEnrollClick(course.title)}
-                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-all shadow-xs cursor-pointer"
-                  >
-                    <span>Enroll Now</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
-                  </button>
+                  <div className="flex items-center gap-2">
+                    {/* PDF download for D-2 */}
+                    {course.pdfUrl && (
+                      <a
+                        href={course.pdfUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold transition-all shadow-xs cursor-pointer"
+                        title="Download D-2 PDF Guide"
+                      >
+                        <FileDown className="w-3.5 h-3.5" />
+                        <span>PDF</span>
+                      </a>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => handleEnrollClick(course.title)}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0f172a] hover:bg-[#1e293b] text-white text-xs sm:text-sm font-semibold transition-all shadow-xs cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-amber-400"
+                    >
+                      <span>Enroll Now</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -271,7 +215,7 @@ export default function Courses() {
         </AnimatePresence>
 
         {/* Course Schedule & Mode Assurance Note */}
-        <div className="mt-12 text-center text-xs text-slate-500 max-w-2xl mx-auto">
+        <div className="mt-12 text-center text-xs sm:text-sm text-slate-500 max-w-2xl mx-auto">
           All courses include certified printed study materials, audio files, past exam papers, and
           an official 150+ hours study certificate required by Japanese &amp; Korean Immigration authorities.
         </div>

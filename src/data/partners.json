@@ -1,0 +1,36 @@
+[
+  {
+    "id": "fiflc-japan",
+    "name": "Fukuoka International Foreign Language College",
+    "country": "JP",
+    "logo": "/assets/partners/fukuoka-ifls-logo.png",
+    "website": "https://fukuoka-ifls.com/",
+    "status": "active",
+    "description": "Premier Japanese Language College in Fukuoka offering direct higher education admissions."
+  },
+  {
+    "id": "kiiac-korea",
+    "name": "KIIAC - Korea Institute of Industry-Academia Cooperation",
+    "country": "KR",
+    "logo": "/assets/partners/kiiac-logo.png",
+    "website": "https://www.kiiac.org/",
+    "status": "active",
+    "description": "Official industry-academia consortium connecting Sri Lankan talent to South Korean universities and career pathways."
+  },
+  {
+    "id": "partner-placeholder-1",
+    "name": "Japanese University & Senmon Gakko Network",
+    "country": "JP",
+    "logo": "/assets/partners/partner-placeholder-jp.svg",
+    "status": "upcoming",
+    "description": "Direct academic partner institution in Tokyo & Osaka."
+  },
+  {
+    "id": "partner-placeholder-2",
+    "name": "Korean Regional Industry-Academia Council",
+    "country": "KR",
+    "logo": "/assets/partners/partner-placeholder-kr.svg",
+    "status": "upcoming",
+    "description": "Accredited Korean technical college and vocational partner."
+  }
+]
