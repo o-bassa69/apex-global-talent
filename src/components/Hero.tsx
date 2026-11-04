@@ -50,11 +50,11 @@ export default function Hero() {
       {/* Blue-tinted overlay: lighter than the old navy wash so the photo stays visible */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ backgroundColor: "rgba(18, 58, 102, 0.52)" }}
+        style={{ backgroundColor: "rgba(28, 86, 148, 0.30)" }}
       />
 
       {/* Subtle top & bottom shadow gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#081a30]/75 via-[#0e3a66]/10 to-[#061526]/85 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#12305a]/38 via-[#12467a]/0 to-[#0d2b48]/48 pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center text-white">
         {/* Logo Mark */}
@@ -64,7 +64,7 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
           className="mb-4 sm:mb-6 shrink-0"
         >
-          <Logo variant="white" className="mx-auto h-12 w-12 sm:h-16 sm:w-16" />
+          <Logo variant="white" className="mx-auto h-18 w-18 sm:h-22 sm:w-22" />
         </motion.div>
 
         {/* Title */}
