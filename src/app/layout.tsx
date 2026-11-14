@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     "D-2 Korea Visa Sri Lanka",
   ],
   authors: [{ name: siteConfig.company.legalName }],
-  metadataBase: new URL("https://apexglobaltalent.lk"),
+  metadataBase: new URL("https://apexglobaltalentpvtltd.com"),
   alternates: {
     canonical: "/",
   },
