@@ -217,7 +217,7 @@ export default function Navbar() {
                 </span>
               </span>
               <a
-                href={`tel:${siteConfig.contact.phonePrimary.replace(/\s+/g, "")}`}
+                href={`tel:${siteConfig.contact.phonePrimaryHref}`}
                 className="hidden shrink-0 items-center gap-1.5 whitespace-nowrap transition-colors hover:text-white sm:inline-flex"
               >
                 <Phone className="h-3.5 w-3.5 shrink-0 text-amber-400" />
@@ -241,11 +241,12 @@ export default function Navbar() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-xs font-semibold text-amber-400 transition-colors hover:text-amber-300"
+                aria-label={`WhatsApp ${siteConfig.contact.whatsappDisplay}`}
+                className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap text-xs font-semibold text-amber-400 transition-colors hover:text-amber-300"
               >
-                <MessageCircle className="h-3.5 w-3.5 sm:hidden" />
-                <span className="hidden sm:inline">{t("nav_whatsapp_us")}</span>
-                <ArrowRight className="h-3 w-3" />
+                <MessageCircle className="h-3.5 w-3.5" />
+                <span>{siteConfig.contact.whatsappDisplay}</span>
+                <ArrowRight className="hidden h-3 w-3 sm:block" />
               </a>
             </div>
           </div>
@@ -466,7 +467,7 @@ export default function Navbar() {
                     <span>469, Athurugiriya Road, Malabe</span>
                   </div>
                   <a
-                    href={`tel:${siteConfig.contact.phonePrimary.replace(/\s+/g, "")}`}
+                    href={`tel:${siteConfig.contact.phonePrimaryHref}`}
                     className="flex items-center gap-1.5 hover:text-slate-900"
                   >
                     <Phone className="h-3.5 w-3.5 shrink-0 text-amber-500" />

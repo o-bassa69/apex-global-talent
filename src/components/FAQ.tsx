@@ -192,7 +192,7 @@ export default function FAQ() {
           </div>
           <div className="flex items-center gap-3">
             <a
-              href={`tel:${siteConfig.contact.phonePrimary.replace(/\s+/g, "")}`}
+              href={`tel:${siteConfig.contact.phonePrimaryHref}`}
               className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-300 text-slate-800 text-xs font-bold hover:bg-slate-50 transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-blue-600" />

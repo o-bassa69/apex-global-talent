@@ -22,13 +22,15 @@ export const siteConfig = {
   },
   contact: {
     // Easily update actual values here later
-    phonePrimary: "+94 76 331 5792",
-    phoneSecondary: "+94 76 331 5792",
-    whatsappNumber: "94763315792", // formatted for wa.me links
-    whatsappDisplay: "94 76 331 5792",
+    phonePrimary: "011 288 2989", // landline (displayed exactly as dialed locally)
+    phonePrimaryHref: "+94112882989", // international format for tel: links
+    phoneSecondary: "070 788 2989", // mobile / WhatsApp
+    phoneSecondaryHref: "+94707882989",
+    whatsappNumber: "94707882989", // formatted for wa.me links
+    whatsappDisplay: "070 788 2989",
     whatsappDefaultMessage: "Hello Apex Global Talent, I would like to inquire about Japanese/Korean language courses and visa processing.",
-    emailPrimary: "info@apexglobaltalentpvt.com",
-    emailAdmissions: "admissions@apexglobaltalent.lk",
+    emailPrimary: "info@apexglobaltalentpvtltd.com",
+    emailAdmissions: "info@apexglobaltalentpvtltd.com",
     address: "469, Athurugiriya Road, Malabe",
     city: "Malabe",
     province: "Western Province",

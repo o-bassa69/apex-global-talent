@@ -185,7 +185,7 @@ export default function Footer() {
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-amber-400 shrink-0" />
                 <a
-                  href={`tel:${siteConfig.contact.phonePrimary.replace(/\s+/g, "")}`}
+                  href={`tel:${siteConfig.contact.phonePrimaryHref}`}
                   className="hover:text-white transition-colors"
                 >
                   {siteConfig.contact.phonePrimary}

@@ -110,13 +110,13 @@ export default function Contact() {
                     </div>
                     <div className="text-sm font-semibold text-slate-900 mt-0.5 flex flex-wrap gap-x-4">
                       <a
-                        href={`tel:${siteConfig.contact.phonePrimary.replace(/\s+/g, "")}`}
+                        href={`tel:${siteConfig.contact.phonePrimaryHref}`}
                         className="hover:text-amber-600 transition-colors"
                       >
                         {siteConfig.contact.phonePrimary}
                       </a>
                       <a
-                        href={`tel:${siteConfig.contact.phoneSecondary.replace(/\s+/g, "")}`}
+                        href={`tel:${siteConfig.contact.phoneSecondaryHref}`}
                         className="hover:text-amber-600 transition-colors"
                       >
                         {siteConfig.contact.phoneSecondary}
