@@ -9,6 +9,42 @@ export interface NavItem {
   }[];
 }
 
+export interface OpeningHours {
+  days: string;
+  hours: string;
+}
+
+export interface SocialLinks {
+  facebook: string;
+  instagram: string;
+  linkedin: string;
+  youtube: string;
+  tiktok: string;
+}
+
+export interface ContactInfo {
+  /** Landline shown to visitors, formatted as dialled locally (e.g. `011 288 2989`). */
+  phonePrimary: string;
+  /** Same landline in international format for `tel:` links (e.g. `+94112882989`). */
+  phonePrimaryHref: string;
+  /** Mobile / WhatsApp number shown to visitors (e.g. `070 788 2989`). */
+  phoneSecondary: string;
+  /** Same mobile number in international format for `tel:` links (e.g. `+94707882989`). */
+  phoneSecondaryHref: string;
+  whatsappNumber: string;
+  whatsappDisplay: string;
+  whatsappDefaultMessage: string;
+  emailPrimary: string;
+  emailAdmissions: string;
+  address: string;
+  city: string;
+  province: string;
+  postalCode: string;
+  openingHours: OpeningHours[];
+  social: SocialLinks;
+  googleMapsEmbedUrl: string;
+}
+
 export const siteConfig = {
   company: {
     legalName: "APEX GLOBAL TALENT PVT LTD",
@@ -23,7 +59,9 @@ export const siteConfig = {
   contact: {
     // Easily update actual values here later
     phonePrimary: "011 288 2989", // landline (displayed exactly as dialed locally)
-    phoneSecondaryHref: "+94707882989",
+    phonePrimaryHref: "+94112882989", // international format for tel: links
+    phoneSecondary: "070 788 2989", // mobile / WhatsApp (displayed locally)
+    phoneSecondaryHref: "+94707882989", // international format for tel: links
     whatsappNumber: "94707882989", // formatted for wa.me links
     whatsappDisplay: "070 788 2989",
     whatsappDefaultMessage: "Hello Apex Global Talent, I would like to inquire about Japanese/Korean language courses and visa processing.",
@@ -47,7 +85,7 @@ export const siteConfig = {
     },
     googleMapsEmbedUrl:
       "https://maps.google.com/maps?q=469,+Athurugiriya+Road,+Malabe,+Sri+Lanka&t=&z=16&ie=UTF8&iwloc=&output=embed",
-  },
+  } satisfies ContactInfo,
   disclaimer: {
     title: "Legal & Regulatory Compliance Disclaimer",
     text: "APEX GLOBAL TALENT PVT LTD is a registered private educational consultancy and language training institute in Sri Lanka. We offer language preparation and visa documentation guidance. We are not an embassy, consulate, or government migration department. Final decisions regarding visa issuance, university admissions, and employment permits reside solely with the Immigration Services Agency of Japan, the Ministry of Justice of the Republic of Korea, the Sri Lanka Foreign Employment Agency, and respective authorized institutions. We do not make promises or guarantees regarding visa approval, employment placement, or university admission.",
