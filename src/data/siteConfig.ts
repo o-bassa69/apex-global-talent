@@ -23,8 +23,6 @@ export const siteConfig = {
   contact: {
     // Easily update actual values here later
     phonePrimary: "011 288 2989", // landline (displayed exactly as dialed locally)
-    phonePrimaryHref: "+94112882989", // international format for tel: links
-    phoneSecondary: "070 788 2989", // mobile / WhatsApp
     phoneSecondaryHref: "+94707882989",
     whatsappNumber: "94707882989", // formatted for wa.me links
     whatsappDisplay: "070 788 2989",

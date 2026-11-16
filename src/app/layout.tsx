@@ -10,6 +10,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
 import { LanguageProvider } from "@/i18n/LanguageContext";
+import OrganizationSchema from "@/components/OrganizationSchema";
 import { siteConfig } from "@/data/siteConfig";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -68,13 +69,40 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     title: "APEX GLOBAL TALENT | Japanese & Korean Language Classes & Visa Processing",
     description:
       "Premier Japanese & Korean language institute and direct academic representative in Sri Lanka. Gateway to study and work opportunities in Japan & South Korea.",
+    url: "/",
     type: "website",
     locale: "en_LK",
     siteName: "APEX GLOBAL TALENT",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "APEX GLOBAL TALENT — Japanese & Korean Language Institute, Visa Advisory, Malabe, Sri Lanka",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "APEX GLOBAL TALENT | Japanese & Korean Language Classes & Visa Processing",
+    description:
+      "Premier Japanese & Korean language institute and direct academic representative in Sri Lanka. Gateway to study and work opportunities in Japan & South Korea.",
+    images: ["/og-image.png"],
   },
 };
 
@@ -90,6 +118,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <LanguageProvider>
+          <OrganizationSchema />
           <Navbar />
           <main className="flex-1 w-full">{children}</main>
           <Footer />
